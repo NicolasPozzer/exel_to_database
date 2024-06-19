@@ -1,6 +1,4 @@
 import pandas as pd
-import pyodbc
-import xlsxwriter
 
 def validate_data_types(df):
     """Validates that all rows have the same data types as the first row"""
