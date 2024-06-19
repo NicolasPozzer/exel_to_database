@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Excel File</title>
+</head>
+<body>
+    <h1>Upload Excel File</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="table_name">Table Name:</label>
+        <input type="text" id="table_name" name="table_name" required>
+        <br><br>
+        <label for="file">Select Excel file:</label>
+        <input type="file" id="file" name="file" accept=".xlsx" required>
+        <br><br>
+        <input type="submit" value="Upload">
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+        {% if error_file %}
+            <a href="{{ error_file }}">Download Error File</a>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
