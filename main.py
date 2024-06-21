@@ -1,3 +1,4 @@
+from src.components.data_validate import validate_dataframe, save_invalid_rows, create_table_from_df, insert_data_from_df
 from fastapi import FastAPI, File, UploadFile, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -7,13 +8,10 @@ import pyodbc as db
 import os
 import uuid  # To generate unique names for error files
 
-# Import necessary functions from your module
-from src.components.data_validate import validate_dataframe, save_invalid_rows, create_table_from_df, insert_data_from_df
+
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-
-# Mount static directory to serve CSS files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Route for the main page
@@ -44,6 +42,7 @@ async def upload_file(request: Request, file: UploadFile = File(...), table_name
             error_file_url = f"/static/uploads/{error_file_name}"
             return templates.TemplateResponse("index.html", {"request": request, "error": "Invalid rows found.", "error_file_url": error_file_url})
 
+        #DB Params
         conn_sql = db.connect(
             driver="SQL Server",
             server="DESKTOP-NICO",

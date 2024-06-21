@@ -1,7 +1,7 @@
 import pandas as pd
 
+#Validates that all rows have the same data types as the first row
 def validate_data_types(df):
-    """Validates that all rows have the same data types as the first row"""
     first_row_types = df.iloc[0].apply(lambda x: pd.api.types.infer_dtype([x]))
 
     for col in df.columns:
@@ -38,7 +38,7 @@ def detect_data_types(df):
     return types
 
 def create_table_from_df(cursor, table_name, df):
-    """Creates a table in SQL Server based on the pandas DataFrame"""
+    #Creates a table in SQL Server based on the pandas DataFrame
     types = detect_data_types(df)
     columns_with_types = [f"{col} {get_sql_type(types[col])}" for col in df.columns]
     create_table_query = f"""
@@ -49,7 +49,7 @@ def create_table_from_df(cursor, table_name, df):
     cursor.execute(create_table_query)
 
 def insert_data_from_df(cursor, table_name, df):
-    """Inserts data from a DataFrame into a SQL Server table"""
+    #Inserts data from a DataFrame into a SQL Server table
     insert_query = f"INSERT INTO {table_name} ({', '.join(df.columns)}) VALUES ({', '.join(['?' for _ in df.columns])})"
 
     for index, row in df.iterrows():
