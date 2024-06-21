@@ -16,10 +16,13 @@ To run the script, install the dependencies.
 ## Features
 
 - Simple user interface
-![plot](https://i.imgur.com/5e6E7L1.jpeg)
+
+![plot](https://i.imgur.com/mrZRTXX.jpeg)
 - Automatic return of excel file with marked errors
+
 ![plot](https://i.imgur.com/zpNq5AV.jpeg)
 - Data loaded successfully into SQL Server!
+
 ![plot](https://i.imgur.com/QWOISPT.jpeg)
 
 ## Authors
