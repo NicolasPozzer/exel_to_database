@@ -9,7 +9,7 @@ Project to load data from an Excel file directly to a database in SQL Server.
 To run the script, install the dependencies.
 
 ```bash
-  pip install fastapi uvicorn jinja2 pandas pyodbc openpyxl
+  pip install fastapi uvicorn jinja2 pandas pyodbc openpyxl xlsxwriter
 ```
 
 

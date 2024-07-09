@@ -1,5 +1,5 @@
-from src.components.data_validate import validate_dataframe, save_invalid_rows, create_table_from_df, \
-    insert_data_from_df
+from src.components.data_validate import validate_dataframe, \
+save_invalid_rows, create_table_from_df, insert_data_from_df
 import uvicorn
 from fastapi import FastAPI, File, UploadFile, Form, Request
 from fastapi.responses import HTMLResponse
